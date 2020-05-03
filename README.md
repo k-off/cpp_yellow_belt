@@ -26,4 +26,49 @@ Use function templates for different data types support.
 Use testing API to perform unit-test of a function.
 
 ### Program Decomposition
-Split a program into multiple files.
+Split the program Bus Stops from White Belt course into multiple files.
+
+**Supported commands:**
+ - `NEW_BUS bus stop_count stop1 stop2 ...` add a new route `bus` with `stop_count` stops with names `stop1, ...`
+ - `BUSES_FOR_STOP stop` print out all the routes available at the stop `stop`
+ - `STOPS_FOR_BUS bus` print out all the stops available for the route `bus`
+ - `ALL_BUSES` print out all the routes with their stops
+
+**Input Format:**
+```
+Q - number of requests
+R[0] - first request
+...
+R[Q-1] - last request
+```
+
+**Test Input:**
+```
+10
+ALL_BUSES
+BUSES_FOR_STOP Marushkino
+STOPS_FOR_BUS 32K
+NEW_BUS 32 3 Tolstopaltsevo Marushkino Vnukovo
+NEW_BUS 32K 6 Tolstopaltsevo Marushkino Vnukovo Peredelkino Solntsevo Skolkovo
+BUSES_FOR_STOP Vnukovo
+NEW_BUS 950 6 Kokoshkino Marushkino Vnukovo Peredelkino Solntsevo Troparyovo
+NEW_BUS 272 4 Vnukovo Moskovsky Rumyantsevo Troparyovo
+STOPS_FOR_BUS 272
+ALL_BUSES
+```
+
+**Test Output:**
+```
+No buses
+No stop
+No bus
+32 32K
+Stop Vnukovo: 32 32K 950
+Stop Moskovsky: no interchange
+Stop Rumyantsevo: no interchange
+Stop Troparyovo: 950
+Bus 272: Vnukovo Moskovsky Rumyantsevo Troparyovo
+Bus 32: Tolstopaltsevo Marushkino Vnukovo
+Bus 32K: Tolstopaltsevo Marushkino Vnukovo Peredelkino Solntsevo Skolkovo
+Bus 950: Kokoshkino Marushkino Vnukovo Peredelkino Solntsevo Troparyovo
+```
